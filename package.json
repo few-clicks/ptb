@@ -1,0 +1,23 @@
+{
+  "name": "ptb",
+  "version": "1.0.0",
+  "description": "Progress Tracker Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/few-clicks/ptb.git"
+  },
+  "author": "Few Clicks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/few-clicks/ptb/issues"
+  },
+  "homepage": "https://github.com/few-clicks/ptb#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-telegram-bot-api": "^0.64.0"
+  }
+}
