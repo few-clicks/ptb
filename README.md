@@ -6,10 +6,10 @@ install node_modules:
 
 project structure:
 `ptb
-    |config #configure database
-    |controllers #api controllers
-    |middleware #auth, error middleware
-    |models #database model
-    |routes #http routing
-    |utils #utilities
-    index.js #main file`
+    |config #configure database <br/> 
+    |controllers #api controllers <br/> 
+    |middleware #auth, error middleware <br/> 
+    |models #database model <br/> 
+    |routes #http routing <br/> 
+    |utils #utilities <br/> 
+    index.js #main file <br/>`
