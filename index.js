@@ -1,11 +1,20 @@
 require("dotenv").config({ path: "./.env" });
 const express = require("express");
 const cors = require("cors");
+const connectDB = require("./config/db");
+var bodyParser = require("body-parser");
+
+connectDB(); // connect database
 
 // initialize app
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json({ limit: "16mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "16mb", extended: true }));
+
+// adding routs
+app.use("/api/v1/auth", require("./routes/auth"));
 
 // initialize tg bot
 const TelegramBot = require('node-telegram-bot-api');
@@ -37,3 +46,4 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
   // send back the matched "whatever" to the chat
   bot.sendMessage(chatId, resp);
 });
+
