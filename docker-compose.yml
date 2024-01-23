@@ -45,10 +45,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-<<<<<<< HEAD
       device: /home/sasha/node_project/views/
-=======
-
       o: bind
 
 networks:
