@@ -4,7 +4,8 @@ const cors = require("cors");
 // const connectDB = require("./config/db");
 var bodyParser = require("body-parser");
 
-// connectDB();
+
+connectDB();
 
 // initialize app
 const app = express();
@@ -17,8 +18,9 @@ app.use(bodyParser.urlencoded({ limit: "16mb", extended: true }));
 app.use("/api/v1/auth", require("./routes/auth"));
 
 // initialize tg bot
-// const TelegramBot = require('node-telegram-bot-api');
-// const bot = new TelegramBot(process.env.API_KEY_BOT, { polling: true });
+
+const TelegramBot = require('telegraf');
+export const bot = new TelegramBot(process.env.API_KEY_BOT);
 
 // Error Handler Middleware
 const errorHandler = require("./middleware/error");
@@ -35,15 +37,9 @@ process.on("unhandledRejection", (err, promise) => {
   server.close(() => process.exit(1));
 });
 
-// bot.onText(/\/echo (.+)/, (msg, match) => {
-  // 'msg' is the received Message from Telegram
-  // 'match' is the result of executing the regexp above on the text content
-  // of the message
 
-  // const chatId = msg.chat.id;
-  // const resp = match[1]; // the captured "whatever"
+bot.start((ctx) => ctx.reply('Привет, я эхо-бот!'))
+bot.hears('Привет', (ctx) => ctx.reply('Привет!'))
+bot.hears('Пока', (ctx) => ctx.reply('До свидания!'))
 
-  // send back the matched "whatever" to the chat
-  // bot.sendMessage(chatId, resp);
-// });
-
+bot.launch()
