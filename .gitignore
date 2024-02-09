@@ -9,6 +9,7 @@ lerna-debug.log*
 dhparam/
 nginx-conf/nginx.conf
 docker-compose.yml
+nginx.conf
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
