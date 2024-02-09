@@ -1,8 +1,9 @@
 require("dotenv").config({ path: "./.env" });
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("./config/db");
+// const connectDB = require("./config/db");
 var bodyParser = require("body-parser");
+
 
 connectDB();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ limit: "16mb", extended: true }));
 app.use("/api/v1/auth", require("./routes/auth"));
 
 // initialize tg bot
+
 const TelegramBot = require('telegraf');
 export const bot = new TelegramBot(process.env.API_KEY_BOT);
 
@@ -34,6 +36,7 @@ process.on("unhandledRejection", (err, promise) => {
   console.log(`Logged Error: ${err.message}`);
   server.close(() => process.exit(1));
 });
+
 
 bot.start((ctx) => ctx.reply('Привет, я эхо-бот!'))
 bot.hears('Привет', (ctx) => ctx.reply('Привет!'))
