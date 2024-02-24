@@ -38,9 +38,15 @@ process.on("unhandledRejection", (err, promise) => {
 });
 
 
-bot.start((ctx) => ctx.reply('Привет, я эхо-бот!'))
-bot.hears('Привет', (ctx) => ctx.reply('Привет!'))
-bot.hears('Пока', (ctx) => ctx.reply('До свидания!'))
+bot.start((ctx) => ctx.reply(
+		`<b>Привет!</b>
+<b>Список команд</b>:
+
+/start - запуск бота
+/help - список команд
+/keyboard1 - обычная клавиатура 
+/keyboard2 - инлайн-клавиатура`,
+		{ parse_mode: 'HTML' }));
 
 bot.launch()
 process.once('SIGINT', () => bot.stop('SIGINT'));
