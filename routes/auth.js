@@ -5,20 +5,10 @@ const { protect } = require("../middleware/auth");
 // Controllers
 const {
   login,
-  register,
-  forgotPassword,
-  resetPassword,
-  auth,
 } = require("../controllers/auth");
 
-router.route("/register").post(register);
+router.route("/login/:loginToken").post(login);
 
-router.route("/login").post(login);
-
-router.route("/forgotpassword").post(forgotPassword);
-
-router.route("/passwordreset/:resetToken").put(resetPassword);
-
-router.route("/").get(protect, auth);
+router.route("/").get(protect);
 
 module.exports = router;
